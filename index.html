@@ -5,17 +5,29 @@
   <meta charset="utf-8">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
   <link rel="stylesheet" href="css/index.css">
+  <link href='https://fonts.googleapis.com/css?family=Raleway' rel='stylesheet'>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <title>Game </title>
 </head>
 
 <body>
   <div class="container">
-    <h1 class="text-center">Game</h1>
+    <h1 class="text-center">SaveTheGoats</h1>
     <div class="jumbotron">
+      <div class="row resetbtn">
+        <div class="col-md-4 ">
+          <button class="btn btn-primary" type="button" name="reset" id="reset">Reset</button>
+        </div>
+        <div class="col-md-4">
+          <button class="btn btn-primary" type="button" name="level" id="level">Level2</button>
+        </div>
+        <div class="col-md-4">
+
+        </div>
+      </div>
       <!-- row1 -->
       <div class="row " id="row1">
-        <div class="col-md-2 box image" clear='empty'>
+        <div class="col-md-2 box " clear='empty'>
         </div>
         <div class="col-md-2 box" clear='empty'>
         </div>
@@ -25,9 +37,7 @@
         </div>
         <div class="col-md-2 box image" clear='empty'>
         </div>
-        <div class="col-md-2" id = "win">
-          Your result!!
-        </div>
+
       </div>
       <!-- row2 -->
       <div class="row " id="row2">
@@ -41,8 +51,8 @@
         </div>
         <div class="col-md-2 box" clear='empty'>
         </div>
-        <div class="col-md-2" id = "life">
-          life :: 4
+        <div class="col-md-1" id="goatsOnBoard">
+          Goats 21
         </div>
       </div>
 
@@ -58,9 +68,7 @@
         </div>
         <div class="col-md-2 box" clear='empty'>
         </div>
-        <div class="col-md-2" id ="goatsOnBoard">
-          Goats left :: 21
-        </div>
+
       </div>
 
       <!-- row4 -->
@@ -75,14 +83,14 @@
         </div>
         <div class="col-md-2 box" clear='empty'>
         </div>
-        <div class="col-md-2" id = "lifeLeft">
-
+        <div class="col-md-1" id="life">
+          life <br> 4
         </div>
       </div>
 
       <!-- row5 -->
       <div class="row" id="row5">
-        <div class="col-md-2 box image" clear='empty'>
+        <div class="col-md-2 box " clear='empty'>
         </div>
         <div class="col-md-2 box" clear='empty'>
         </div>
@@ -90,7 +98,7 @@
         </div>
         <div class="col-md-2 box" clear='empty'>
         </div>
-        <div class="col-md-2 box image" clear='empty'>
+        <div class="col-md-2 box " clear='empty'>
         </div>
       </div>
     </div>

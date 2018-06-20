@@ -2,12 +2,17 @@ var countGoats = 21;
 var leftGoat = document.getElementById('goatsOnBoard');
 var life = 4;
 var lifeLeft = document.getElementById('life');
-var win = document.getElementById('win');
+//var win = document.getElementById('win');//winning condition that inputs in html
+var result = document.getElementById('result');
 var box = document.getElementsByClassName('box'); //gets classname of grids
 
+var reset = document.getElementById('reset');
+reset.addEventListener('click',function(){
+  resetBoard();
+})
 
 for (var i = 0; i < box.length; i++) {
-  if (i == 0 || i == 4 || i == 20 || i == 24) {
+  if (i == 1 || i == 5 || i == 10 || i == 14) {
     tiger();
     i++;
   }
@@ -25,6 +30,7 @@ function tiger() {
       img.src = "images/tiger.jpg";
       this.appendChild(img);
       img.style.width = '60%';
+      img.style.textAlign = "center";
       this.setAttribute('clear', 'occupied');
       console.log(clear);
       life--;
@@ -44,16 +50,37 @@ function goat() {
       img.style.width = '60%';
       this.setAttribute('clear', 'occupied');
       console.log(clear);
+      winCondition();
       countGoats--;
       leftGoat.innerHTML = "Goats left :: " + countGoats;
-      if (countGoats == 0 && life == 4) {
-        win.innerHTML = "You won";
-        console.log("you won");
-      } else if (countGoats == 0 && life == 3) {
-        win.innerHTML = "You are so close to winning";
-      } else if (countGoats == 0 && life == 2 || life == 1 || life == 0) {
-        win.innerHTML = "Better luck next time";
-      }
     }
   });
+}
+
+function winCondition() {
+  if (countGoats == 0 && life == 4) {
+    //result.innerHTML = "You won";
+    alert("you won");
+  } else if (countGoats == 0 && life == 3) {
+    //result.innerHTML = "You are so close to winning";
+    alert("You are so close to winning");
+  } else if (countGoats == 0 && life == 2) {
+    //result.innerHTML = "You could do better!!";
+    alert("You could do better!!");
+    //this.removeEventListener('click',tiger);
+  } else if (countGoats == 0 && life == 1) {
+    //result.innerHTML = "Not good!!!";
+    alert("Not good!!!");
+  } else if (life == 0) {
+    //result.innerHTML = " You lost!!!";
+    alert("You lost!!!");
+  }
+}
+
+function resetBoard(){
+  location.reload();
+  // for (var i = 0;i < box.length;i++) {
+  //   //box[i].innerHTML = " ";
+  //   box[i].style.display = "none";
+  // }
 }

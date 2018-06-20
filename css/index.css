@@ -1,3 +1,6 @@
+body{
+  font-family: 'Raleway';
+}
 .box{
   border-style: solid;
   border-color: black;
@@ -13,7 +16,36 @@
   width:50%;
 }
 
-.image{
+/* .image{
   text-align: center;
   /* display:none; */
+} */
+
+#result{
+  text-align: center;
+}
+
+#reset{
+  width:50%;
+  font-size:25px;
+}
+#level{
+  width:50%;
+  font-size:25px;
+}
+.resetbtn{
+  margin-bottom:10px;
+}
+
+#life{
+  background-color: red;
+  margin-left:2px;
+  font-size:20px;
+  height:100px;
+}
+#goatsOnBoard{
+  background-color: purple;
+  margin-left:2px;
+  font-size:20px;
+  height:100px;
 }
