@@ -1,4 +1,11 @@
+var countGoats = 21;
+var leftGoat = document.getElementById('goatsOnBoard');
+var life = 4;
+var lifeLeft = document.getElementById('life');
+var win = document.getElementById('win');
 var box = document.getElementsByClassName('box'); //gets classname of grids
+
+
 for (var i = 0; i < box.length; i++) {
   if (i == 0 || i == 4 || i == 20 || i == 24) {
     tiger();
@@ -20,6 +27,9 @@ function tiger() {
       img.style.width = '60%';
       this.setAttribute('clear', 'occupied');
       console.log(clear);
+      life--;
+      lifeLeft.innerHTML = "life left ::" + life;
+      console.log("life on board : " + life);
     }
   });
 }
@@ -34,6 +44,16 @@ function goat() {
       img.style.width = '60%';
       this.setAttribute('clear', 'occupied');
       console.log(clear);
+      countGoats--;
+      leftGoat.innerHTML = "Goats left :: " + countGoats;
+      if (countGoats == 0 && life == 4) {
+        win.innerHTML = "You won";
+        console.log("you won");
+      } else if (countGoats == 0 && life == 3) {
+        win.innerHTML = "You are so close to winning";
+      } else if (countGoats == 0 && life == 2 || life == 1 || life == 0) {
+        win.innerHTML = "Better luck next time";
+      }
     }
   });
 }
