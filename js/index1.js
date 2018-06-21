@@ -1,4 +1,4 @@
-var countGoats = 21;
+var countGoats = 26;
 var leftGoat = document.getElementById('goatsOnBoard');
 var life = 4;
 var lifeLeft = document.getElementById('life');
@@ -7,18 +7,20 @@ var result = document.getElementById('result');
 var box = document.getElementsByClassName('box'); //gets classname of grids
 var reset = document.getElementById('reset');
 var mysound;
-
+$('#myModal').on('shown.bs.modal', function () {
+  $('#myInput').focus()
+});
 
 reset.addEventListener('click',function(){
   resetBoard();
 })
 
 for (var i = 0; i < box.length; i++) {
-  if (i == 1 || i == 5 || i == 10 || i == 14) {
+  if (i == 4 || i == 10 || i == 17 || i == 24) {
     tiger();
     i++;
   }
-  if (i < 25) {
+  if (i < 30) {
     goat();
   }
 }
@@ -36,7 +38,7 @@ function tiger() {
       this.setAttribute('clear', 'occupied');
       console.log(clear);
       life--;
-      lifeLeft.innerHTML = "life left ::" + life;
+      lifeLeft.innerHTML = "life left " + life;
       console.log("life on board : " + life);
 
     }
@@ -55,7 +57,7 @@ function goat() {
       this.setAttribute('clear', 'occupied');
       console.log(clear);
       countGoats--;
-      leftGoat.innerHTML = "Goats left :: " + countGoats;
+      leftGoat.innerHTML = "Goats left  " + countGoats;
 
     }
     winCondition();
@@ -64,20 +66,20 @@ function goat() {
 }
 
 function winCondition() {
-  if (countGoats == 0 && life == 4) {
+  if (countGoats == 7 && life == 4) {
     //result.innerHTML = "You won";
     //alert("you won");
     swal("Congratulations!", "You won!", "success", {
   button: "Aww yiss!",
 });
-  } else if (countGoats == 0 && life == 3) {
+} else if (countGoats == 7 && life == 3) {
     //result.innerHTML = "You are so close to winning";
     //alert("You won");
     swal("Congratulations!", "You won!", "success", {
   button: "Aww yiss!",
 });
 
-  } else if (countGoats == 0 && life == 2) {
+} else if (countGoats == 7 && life == 2) {
     //result.innerHTML = "You could do better!!";
     //alert("You won");
     swal("Congratulations!", "You won!", "success",{
@@ -85,7 +87,7 @@ function winCondition() {
 });
 
     //this.removeEventListener('click',tiger);
-  } else if (countGoats == 0 && life == 1) {
+  } else if (countGoats == 7 && life == 1) {
     //result.innerHTML = "Not good!!!";
     //alert("You won");
     swal("Congratulations!", "You won!", "success", {

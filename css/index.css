@@ -19,7 +19,7 @@ body{
 /* .image{
   text-align: center;
   /* display:none; */
-} */
+
 
 #result{
   text-align: center;
@@ -33,19 +33,23 @@ body{
   width:50%;
   font-size:25px;
 }
+#instruction{
+  width:50%;
+  font-size:25px;
+}
 .resetbtn{
   margin-bottom:10px;
 }
 
 #life{
   background-color: red;
-  margin-left:2px;
+  margin-left:10px;
   font-size:20px;
   height:100px;
 }
 #goatsOnBoard{
-  background-color: purple;
-  margin-left:2px;
+  background-color: blue;
+  margin-left:10px;
   font-size:20px;
   height:100px;
 }
