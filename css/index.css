@@ -1,6 +1,10 @@
 body{
   font-family: 'Raleway';
 }
+#heading{
+  text-shadow: 3px 2px blue;
+  font-size: 50px;
+}
 .box{
   border-style: solid;
   border-color: black;

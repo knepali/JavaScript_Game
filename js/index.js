@@ -90,7 +90,6 @@ function goat() {
 function winCondition() {
   if (countGoats == 0 && life == 4) {
     winningmsg();
-
   } else if (countGoats == 0 && life == 3) {
     winningmsg();
   } else if (countGoats == 0 && life == 2) {
