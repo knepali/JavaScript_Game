@@ -1,4 +1,4 @@
-var countGoats = 26;
+var countGoats = 19;
 var leftGoat = document.getElementById('goatsOnBoard');
 var life = 4;
 var lifeLeft = document.getElementById('life');
@@ -7,8 +7,16 @@ var result = document.getElementById('result');
 var box = document.getElementsByClassName('box'); //gets classname of grids
 var reset = document.getElementById('reset');
 var mysound;
-$('#myModal').on('shown.bs.modal', function () {
-  $('#myInput').focus()
+var modal = document.getElementById('mymodal');
+var instruction = document.getElementById('instruction');
+var close = document.getElementsByClassName('close');
+
+instruction.addEventListener('click',function(){
+  modal.style.display = "block";
+});
+
+close[0].addEventListener('click',function(){
+  modal.style.display = "none";
 });
 
 reset.addEventListener('click',function(){
@@ -66,20 +74,20 @@ function goat() {
 }
 
 function winCondition() {
-  if (countGoats == 7 && life == 4) {
+  if (countGoats == 0 && life == 4) {
     //result.innerHTML = "You won";
     //alert("you won");
     swal("Congratulations!", "You won!", "success", {
   button: "Aww yiss!",
 });
-} else if (countGoats == 7 && life == 3) {
+} else if (countGoats == 0 && life == 3) {
     //result.innerHTML = "You are so close to winning";
     //alert("You won");
     swal("Congratulations!", "You won!", "success", {
   button: "Aww yiss!",
 });
 
-} else if (countGoats == 7 && life == 2) {
+} else if (countGoats == 0 && life == 2) {
     //result.innerHTML = "You could do better!!";
     //alert("You won");
     swal("Congratulations!", "You won!", "success",{
@@ -87,7 +95,7 @@ function winCondition() {
 });
 
     //this.removeEventListener('click',tiger);
-  } else if (countGoats == 7 && life == 1) {
+  } else if (countGoats == 0 && life == 1) {
     //result.innerHTML = "Not good!!!";
     //alert("You won");
     swal("Congratulations!", "You won!", "success", {
@@ -105,6 +113,7 @@ function winCondition() {
 function resetBoard(){
   location.reload();
 }
+
 
 // function sound(e){
 //   mysound = new sound("images/goat.mp3");
