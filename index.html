@@ -20,10 +20,32 @@
         </div>
         <div class="col-md-4">
           <!-- <button class="btn btn-primary" type="button" name="level" id ="level">Level1</button> -->
-          <a href="index1.html" class="btn btn-info" role="button" id ="level">Level1</a>
+          <a href="index1.html" class="btn btn-info" role="button" id ="level">Go to Level1</a>
         </div>
         <div class="col-md-4">
-
+          <button type="button" class="btn btn-info btn-lg" id="instruction">Instruction</button>
+          <div class="modal" id="mymodal">
+            <!-- Modal content -->
+            <div class="modal-content">
+              <div class="modal-header">
+                <span class="close">&times;</span>
+                <h2>Instructions</h2>
+              </div>
+              <div class="modal-body">
+                <h4>Level 2</h4>
+                <ul>
+                  <li>4 invisible tigers on the board</li>
+                  <li>21 goats available</li>
+                  <li>4 lives available</li>
+                  <li>Place goats one by one on board</li>
+                  <li>Avoid the tigers to win</li>
+                </ul>
+              </div>
+              <div class="modal-footer">
+                <h2 class="text-center">***</h2>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
       <!-- row1 -->
@@ -104,6 +126,19 @@
       </div>
     </div>
     <!-- closing jumbotron -->
+    <!--audio control  -->
+    <audio id="goatSound">
+      <source src="images/goat.mp3" type="audio/mpeg">
+    </audio>
+    <audio id="tigerSound">
+      <source src="images/tiger.mp3" type="audio/mpeg">
+    </audio>
+    <audio id="lose">
+      <source src="images/losing.mp3" type="audio/mpeg">
+    </audio>
+    <audio id="win">
+      <source src="images/applause.mp3" type="audio/mpeg">
+    </audio>
   </div>
   <!--closing container -->
   <script type="text/javascript" src="js/index.js">

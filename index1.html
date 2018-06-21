@@ -22,7 +22,7 @@
         </div>
         <div class="col-md-4">
           <!-- <button class="btn btn-primary" type="button" name="level" id="level">Level2</button> -->
-          <a href="index.html" class="btn btn-info" role="button" id="level">Level2</a>
+          <a href="index.html" class="btn btn-info" role="button" id="level">Go to Level2</a>
         </div>
         <div class="col-md-4">
           <button type="button" class="btn btn-info btn-lg" id="instruction">Instruction</button>
@@ -37,11 +37,14 @@
                 <h4>Level 1</h4>
                 <ul>
                   <li>4 invisible tigers on the board</li>
-                  <li></li>
+                  <li>19 goats available</li>
+                  <li>4 lives available</li>
+                  <li>Place goats one by one on board</li>
+                  <li>Avoid the tigers to win</li>
                 </ul>
               </div>
               <div class="modal-footer">
-                <h3>Modal Footer</h3>
+                <h2 class="text-center">***</h2>
               </div>
             </div>
           </div>
@@ -137,6 +140,19 @@
         <div class="col-md-2 box " clear='empty'>
         </div>
       </div>
+      <!--audio control  -->
+      <audio id="goatSound">
+        <source src="images/goat.mp3" type="audio/mpeg">
+      </audio>
+      <audio id="tigerSound">
+        <source src="images/tiger.mp3" type="audio/mpeg">
+      </audio>
+      <audio id="lose">
+        <source src="images/losing.mp3" type="audio/mpeg">
+      </audio>
+      <audio id="win">
+        <source src="images/applause.mp3" type="audio/mpeg">
+      </audio>
     </div>
     <!-- closing jumbotron -->
   </div>

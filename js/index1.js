@@ -6,22 +6,31 @@ var lifeLeft = document.getElementById('life');
 var result = document.getElementById('result');
 var box = document.getElementsByClassName('box'); //gets classname of grids
 var reset = document.getElementById('reset');
-var mysound;
 var modal = document.getElementById('mymodal');
 var instruction = document.getElementById('instruction');
 var close = document.getElementsByClassName('close');
+var goatSound = document.getElementById('goatSound');
+var tigerSound = document.getElementById('tigerSound');
+var lose = document.getElementById('lose');
+var win = document.getElementById('win');
 
-instruction.addEventListener('click',function(){
+instruction.addEventListener('click', function() {
   modal.style.display = "block";
 });
 
-close[0].addEventListener('click',function(){
+close[0].addEventListener('click', function() {
   modal.style.display = "none";
 });
 
-reset.addEventListener('click',function(){
+window.addEventListener('click', function(event) {
+  if (event.target == modal) {
+    modal.style.display = "none";
+  }
+});
+
+reset.addEventListener('click', function() {
   resetBoard();
-})
+});
 
 for (var i = 0; i < box.length; i++) {
   if (i == 4 || i == 10 || i == 17 || i == 24) {
@@ -35,6 +44,7 @@ for (var i = 0; i < box.length; i++) {
 
 function tiger() {
   box[i].addEventListener('click', function(event) {
+    tigerSound.play();
     var clear = this.getAttribute('clear');
     console.log(clear);
     if (clear === 'empty') {
@@ -48,14 +58,17 @@ function tiger() {
       life--;
       lifeLeft.innerHTML = "life left " + life;
       console.log("life on board : " + life);
-
+    }
+    if (life === 0) {
+      losingmsg();
+      return;
     }
   });
 }
 
 function goat() {
   box[i].addEventListener('click', function(e) {
-
+    goatSound.play();
     var clear = this.getAttribute('clear');
     if (clear === 'empty') {
       var img = document.createElement("img");
@@ -66,58 +79,40 @@ function goat() {
       console.log(clear);
       countGoats--;
       leftGoat.innerHTML = "Goats left  " + countGoats;
-
     }
-    winCondition();
-    //sound('click');
+    if (life !== 0) {
+      winCondition();
+    }
   });
 }
 
 function winCondition() {
   if (countGoats == 0 && life == 4) {
-    //result.innerHTML = "You won";
-    //alert("you won");
-    swal("Congratulations!", "You won!", "success", {
-  button: "Aww yiss!",
-});
-} else if (countGoats == 0 && life == 3) {
-    //result.innerHTML = "You are so close to winning";
-    //alert("You won");
-    swal("Congratulations!", "You won!", "success", {
-  button: "Aww yiss!",
-});
-
-} else if (countGoats == 0 && life == 2) {
-    //result.innerHTML = "You could do better!!";
-    //alert("You won");
-    swal("Congratulations!", "You won!", "success",{
-  button: "Aww yiss!",
-});
-
-    //this.removeEventListener('click',tiger);
+    winningmsg();
+  } else if (countGoats == 0 && life == 3) {
+    winningmsg();
+  } else if (countGoats == 0 && life == 2) {
+    winningmsg();
   } else if (countGoats == 0 && life == 1) {
-    //result.innerHTML = "Not good!!!";
-    //alert("You won");
-    swal("Congratulations!", "You won!", "success", {
-  button: "Aww yiss!",
-});
-
-  } else if (life == 0) {
-    //result.innerHTML = " You lost!!!";
-    swal( "Sorry","You Lost!", "warning", {
-  button: "Noez!",
-});
+    winningmsg();
   }
 }
 
-function resetBoard(){
-  location.reload();
+function losingmsg() {
+  lose.play();
+  swal({
+    title: 'You lost',
+  });
+}
+
+function winningmsg() {
+  win.play();
+  swal("Congratulations!", "You won!", "success", {
+    button: "Aww yiss!",
+  });
 }
 
 
-// function sound(e){
-//   mysound = new sound("images/goat.mp3");
-//   if(!e){
-//     return;
-//   }
-// }
+function resetBoard() {
+  location.reload();
+}
